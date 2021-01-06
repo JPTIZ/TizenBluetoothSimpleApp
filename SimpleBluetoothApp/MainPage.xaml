@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleBluetoothApp.MainPage">
+    <ContentPage.Content>
+        <ScrollView Margin="10, 30">
+            <StackLayout x:Name="OuterLayout" Margin="0"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <Label Text="{Binding BluetoothState,
+                                      StringFormat='Bluetooth: {0}'}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="StatusLabel"
+                       Text="{Binding BluetoothConnectionState,
+                                      StringFormat='Status: {0}'}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand" />
+                <StackLayout Orientation="Horizontal"
+                             Margin="0"
+                             HorizontalOptions="Center">
+                    <Button Clicked="ScanClicked"
+                            Text="Scan"
+                            IsEnabled="{Binding BluetoothAdapter.IsBluetoothEnabled}"
+                            />
+                    <Button Clicked="StopClicked" Text="Stop" />
+                </StackLayout>
+                <StackLayout x:Name="InnerLayout"
+                             Margin="0"
+                             HorizontalOptions="Center"
+                             />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
